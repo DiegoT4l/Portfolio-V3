@@ -1,34 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { motion, useScroll } from 'framer-motion';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import About from './components/About';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import ParallaxWrapper from './components/shared/ParallaxWrapper';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+    const { scrollYProgress } = useScroll();
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noopener noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white relative">
+            {/* Progress bar */}
+            <motion.div
+                className="fixed top-0 left-0 right-0 h-1 bg-purple-600 origin-left z-50"
+                style={{ scaleX: scrollYProgress }}
+            />
+
+            <Header />
+            <main>
+                <Hero />
+                <ParallaxWrapper offset={100}>
+                    <About />
+                </ParallaxWrapper>
+                <ParallaxWrapper offset={100} direction="down">
+                    <Experience />
+                </ParallaxWrapper>
+                <ParallaxWrapper offset={100}>
+                    <Projects />
+                </ParallaxWrapper>
+                <ParallaxWrapper offset={100} direction="down">
+                    <Skills />
+                </ParallaxWrapper>
+                <ParallaxWrapper offset={100}>
+                    <Contact />
+                </ParallaxWrapper>
+            </main>
+            <Footer />
+        </div>
+    );
 }
 
-export default App
+export default App;
