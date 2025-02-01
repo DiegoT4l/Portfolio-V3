@@ -5,6 +5,7 @@ import { Briefcase, Calendar } from 'lucide-react';
 import { loadExperiences } from '../data';
 import type { Experience } from '../types';
 
+
 function Experience() {
     const [ref, inView] = useInView({
         threshold: 0.1,
