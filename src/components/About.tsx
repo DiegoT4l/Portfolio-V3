@@ -17,7 +17,7 @@ function About() {
     useEffect(() => {
         loadAbout()
             .then((data) => {
-                setParagraphs(data); // Asigna los datos directamente al estado
+                setParagraphs(data); // Assign the data directly to the state
                 setLoading(false);
             })
             .catch((error) => {
@@ -28,11 +28,11 @@ function About() {
     }, []);
 
     if (loading) {
-        return <div>Cargando...</div>; // Muestra un mensaje de carga
+        return <div>Cargando...</div>;
     }
 
     if (error) {
-        return <div>{error}</div>; // Muestra un mensaje de error
+        return <div>{error}</div>;
     }
 
     return (
@@ -69,7 +69,7 @@ function About() {
                             Sobre mí
                         </motion.h2>
 
-                        {/* Mostrar los párrafos dinámicamente */}
+                        {/* Show paragraphs dinamically */}
                         {paragraphs.map((paragraph, index) => (
                             <motion.p
                                 key={index}
