@@ -1,7 +1,7 @@
 import type { Experience } from '../types';
 
 
-export const experience: Experience[] = [
+const experience: Experience[] = [
     {
         id: 1,
         role: 'Frontend Developer',
@@ -27,3 +27,5 @@ export const experience: Experience[] = [
         technologies: ['React', 'TypeScript', 'Node.js', 'Jest', 'Enzyme']
     }
 ]
+
+export default experience;
