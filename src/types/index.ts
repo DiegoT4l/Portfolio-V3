@@ -30,3 +30,16 @@ export interface SkillCategory {
     icon: React.Global.JSX.Element;
     skills: Skill[];
 }
+
+export interface Experience {
+    id: number;
+    role: string;
+    company: string;
+    period: string;
+    description: string[];
+    technologies: string[];
+}
+
+export interface About {
+    desc: string;
+}
