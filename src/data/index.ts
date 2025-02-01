@@ -45,6 +45,6 @@ export const loadProjects = async (): Promise<Project[]> => {
     return loadData<Project[]>('projects', './projects.json');
 };
 
-export const loadAbout = async (): Promise<About> => {
-    return loadData<About>('about', './about.json');
+export const loadAbout = async (): Promise<About[]> => {
+    return loadData<About[]>('about', './about.json');
 };

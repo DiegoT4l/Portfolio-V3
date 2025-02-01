@@ -1,7 +1,7 @@
 import type { About } from '../types';
 
 
-export const about: About[] = [
+const about: About[] = [
     {
     desc: `
         Soy un desarrollador frontend apasionado por crear experiencias web excepcionales. 
@@ -18,3 +18,5 @@ export const about: About[] = [
     },
 ]
 
+
+export default about;
