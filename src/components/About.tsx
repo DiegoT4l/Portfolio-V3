@@ -1,12 +1,39 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { loadAbout } from '../data';
+import type { About } from '../types';
+import { useEffect, useState } from 'react';
 
-
-function About()  {
+function About() {
     const [ref, inView] = useInView({
         threshold: 0.3,
         triggerOnce: true,
     });
+
+    const [paragraphs, setParagraphs] = useState<About[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        loadAbout()
+            .then((data) => {
+                setParagraphs(data); // Asigna los datos directamente al estado
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.error("Error loading about data:", error);
+                setError("Error al cargar los datos sobre mí.");
+                setLoading(false);
+            });
+    }, []);
+
+    if (loading) {
+        return <div>Cargando...</div>; // Muestra un mensaje de carga
+    }
+
+    if (error) {
+        return <div>{error}</div>; // Muestra un mensaje de error
+    }
 
     return (
         <section id="about" className="py-20 bg-gray-50 dark:bg-gray-800">
@@ -42,27 +69,18 @@ function About()  {
                             Sobre mí
                         </motion.h2>
 
-                        <motion.p
-                            className="text-gray-600 dark:text-gray-300 mb-6"
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={inView ? { opacity: 1, x: 0 } : {}}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                        >
-                            Soy un desarrollador frontend apasionado por crear experiencias web excepcionales.
-                            Con años de experiencia en React y tecnologías modernas, me especializo en construir
-                            interfaces intuitivas y atractivas que cautivan a los usuarios.
-                        </motion.p>
-
-                        <motion.p
-                            className="text-gray-600 dark:text-gray-300 mb-8"
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={inView ? { opacity: 1, x: 0 } : {}}
-                            transition={{ duration: 0.8, delay: 0.6 }}
-                        >
-                            Mi enfoque se centra en la atención al detalle, la optimización del rendimiento
-                            y la creación de código limpio y mantenible. Siempre estoy aprendiendo nuevas
-                            tecnologías y mejores prácticas para mantenerme al día en este campo en constante evolución.
-                        </motion.p>
+                        {/* Mostrar los párrafos dinámicamente */}
+                        {paragraphs.map((paragraph, index) => (
+                            <motion.p
+                                key={index}
+                                className="text-gray-600 dark:text-gray-300 mb-6"
+                                initial={{ opacity: 0, x: -50 }}
+                                animate={inView ? { opacity: 1, x: 0 } : {}}
+                                transition={{ duration: 0.8, delay: 0.4 + index * 0.2 }}
+                            >
+                                {paragraph.desc}
+                            </motion.p>
+                        ))}
 
                         <motion.div
                             className="flex space-x-4"
@@ -93,6 +111,5 @@ function About()  {
         </section>
     );
 }
-
 
 export default About;
