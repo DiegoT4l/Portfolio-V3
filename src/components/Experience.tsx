@@ -38,7 +38,7 @@ function Experience() {
     }
 
     return (
-        <section id="experience" className="py-20 bg-white dark:bg-gray-900">
+        <section id="experience" className="py-44 bg-white dark:bg-gray-900">
             <div className="container mx-auto px-6">
                 <motion.h2
                     className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent"
