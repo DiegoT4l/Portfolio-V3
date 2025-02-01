@@ -2,7 +2,7 @@ import type { SkillCategory } from '../types';
 import { Code2 } from 'lucide-react';
 
 
-export const skills: SkillCategory[] = [
+const skills: SkillCategory[] = [
     {
         name: 'Frontend',
         icon: Code2,
@@ -16,3 +16,6 @@ export const skills: SkillCategory[] = [
         ],
     },
 ]
+
+
+export default skills;

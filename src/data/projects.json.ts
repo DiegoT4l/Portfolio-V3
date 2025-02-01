@@ -1,7 +1,7 @@
 import type { Project } from '../types';
 
 
-export const projects: Project[] = [
+const projects: Project[] = [
     {
         id: 1,
         title: 'E-commerce Platform',
@@ -30,3 +30,6 @@ export const projects: Project[] = [
         liveUrl: '#',
     },
 ]
+
+
+export default projects;
