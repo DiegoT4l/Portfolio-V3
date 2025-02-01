@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 /**
  * Creates a debounced function that delays invoking `func` until after `wait` milliseconds
  * have elapsed since the last time the debounced function was invoked.
