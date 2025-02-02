@@ -43,3 +43,9 @@ export interface Experience {
 export interface About {
     desc: string;
 }
+
+export interface FormData {
+    name: string;
+    email: string;
+    message: string;
+}
