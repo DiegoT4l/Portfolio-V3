@@ -33,10 +33,10 @@ function App() {
                 <ParallaxWrapper offset={100}>
                     <Projects />
                 </ParallaxWrapper>
-                <ParallaxWrapper offset={100} direction="down">
+                <ParallaxWrapper offset={100}>
                     <Skills />
                 </ParallaxWrapper>
-                <ParallaxWrapper offset={100}>
+                <ParallaxWrapper offset={100} direction='down'>
                     <Contact />
                 </ParallaxWrapper>
             </main>
