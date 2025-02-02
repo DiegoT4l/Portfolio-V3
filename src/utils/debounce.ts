@@ -14,19 +14,19 @@
  * debouncedLog(); // Logs 'Hello!' after 300ms.
  */
 function debounce<F extends (...args: any[]) => any>(func: F, wait: number): F {
-    let timeout: ReturnType<typeof setTimeout> | null = null;
+  let timeout: ReturnType<typeof setTimeout> | null = null;
 
-    return function (this: any, ...args: Parameters<F>) {
-        const later = () => {
-            timeout = null;
-            func.apply(this, args);
-        };
+  return function (this: any, ...args: Parameters<F>) {
+    const later = () => {
+      timeout = null;
+      func.apply(this, args);
+    };
 
-        if (timeout !== null) {
-            clearTimeout(timeout);
-        }
-        timeout = setTimeout(later, wait);
-    } as F;
+    if (timeout !== null) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(later, wait);
+  } as F;
 }
 
 export default debounce;
