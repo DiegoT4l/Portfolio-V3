@@ -73,9 +73,11 @@ function Footer() {
               Contacto
             </h3>
             <p className='text-gray-600 dark:text-gray-300 mb-2'>
-              email@example.com
+              contact@diegot4l.com
             </p>
-            <p className='text-gray-600 dark:text-gray-300'>Ciudad, País</p>
+            <p className='text-gray-600 dark:text-gray-300'>
+              Mexico City, México
+            </p>
           </motion.div>
         </div>
 
@@ -85,7 +87,10 @@ function Footer() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <p>&copy; {currentYear} Portfolio. Todos los derechos reservados.</p>
+          <p>
+            &copy; {currentYear} DiegoT4l - Portfolio. Todos los derechos
+            reservados.
+          </p>
         </motion.div>
       </div>
     </footer>
