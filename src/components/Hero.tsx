@@ -24,7 +24,7 @@ function Hero() {
           transition={{ duration: 0.8 }}
         >
           <motion.h1
-            className='text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent'
+            className='text-4xl pb-1 md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent'
             whileHover={{ scale: 1.05 }}
             style={{ y: useTransform(scrollYProgress, [0, 1], [0, -100]) }}
           >
@@ -38,9 +38,9 @@ function Hero() {
             <Typewriter
               options={{
                 strings: [
-                  'Frontend Developer',
-                  'UI/UX Enthusiast',
-                  'React Specialist',
+                  'Desarrollador Web',
+                  'UX/UI Entusiasta',
+                  'Especialista React',
                 ],
                 autoStart: true,
                 loop: true,
