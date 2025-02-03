@@ -18,8 +18,6 @@ const skills: SkillCategory[] = [
     skills: [
       { name: 'React', icon: '⚛️' },
       { name: 'TypeScript', icon: '📘' },
-      { name: 'Next.js', icon: '▲' },
-      { name: 'HTML5', icon: '🌐' },
       { name: 'CSS3/Sass', icon: '🎨' },
       { name: 'Tailwind CSS', icon: '🌊' },
     ],

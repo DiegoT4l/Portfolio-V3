@@ -3,9 +3,10 @@ import type { About } from '../types';
 const about: About[] = [
   {
     desc: `
-        Soy un desarrollador frontend apasionado por crear experiencias web excepcionales. 
-        Con años de experiencia en React y tecnologías modernas, me especializo en construir 
-        interfaces intuitivas y atractivas que cautivan a los usuarios.
+        Soy desarrollador web con más de 3 años de experiencia contribuyendo al
+        desarrollo de aplicaciones web y soluciones digitales que se adapten a las
+        necesidades de cada proyecto. Me motiva mejorar la experiencia del usuario
+        con interfaces modernas y de alto rendimiento.
     `,
   },
   {

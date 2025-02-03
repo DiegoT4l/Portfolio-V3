@@ -1,33 +1,36 @@
+import technoImage from '../assets/images/project_festmusic.png';
+import dashTasksImage from '../assets/images/project_dashtask.jpg';
+import blogCafeImage from '../assets/images/project_blogcafe.png';
 import type { Project } from '../types';
 
 const projects: Project[] = [
   {
     id: 1,
-    title: 'E-commerce Platform',
+    title: 'Techno-Festival Website',
     description:
-      'Una plataforma de comercio electrónico moderna construida con React y TypeScript.',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c',
-    technologies: ['React', 'TypeScript', 'Redux', 'Tailwind CSS'],
-    githubUrl: '#',
-    liveUrl: '#',
+      'Sitio web que simula la plataforma oficial de un festival de música "Techno & EDM Festival".',
+    image: technoImage,
+    technologies: ['HTML', 'Sass', 'JavaScript', 'Gulp'],
+    githubUrl: 'https://github.com/DiegoT4l/Music-Festival-Project',
+    liveUrl: 'https://festmusic.diegot4l.com/',
   },
   {
     id: 2,
     title: 'Task Management App',
     description:
-      'Aplicación de gestión de tareas con características de arrastrar y soltar.',
-    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0',
-    technologies: ['React', 'TypeScript', 'React DnD', 'Firebase'],
-    githubUrl: '#',
-    liveUrl: '#',
+      'Aplicación de gestión de tareas con estadisticas y gráficos de progreso.',
+    image: dashTasksImage,
+    technologies: ['Bootstrap', 'Sass', 'JQuery', 'Webpack'],
+    githubUrl: 'https://github.com/DiegoT4l/dashboard-tasks',
+    liveUrl: 'https://dashtask.diegot4l.com/',
   },
   {
     id: 3,
-    title: 'Social Media Dashboard',
+    title: 'BlogDeCafé Website',
     description:
-      'Dashboard para análisis de redes sociales con gráficos interactivos.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f',
-    technologies: ['React', 'D3.js', 'Material-UI', 'Node.js'],
+      'Sitio web de un blog de café con cursos y consejos para los amantes del café.',
+    image: blogCafeImage,
+    technologies: ['HTML', 'CSS', 'JavaScript'],
     githubUrl: '#',
     liveUrl: '#',
   },
