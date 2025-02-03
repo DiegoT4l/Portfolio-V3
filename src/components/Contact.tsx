@@ -56,18 +56,30 @@ function Contact() {
   }
 
   const socialLinks = [
-    { icon: <Github size={24} />, url: '#', label: 'GitHub' },
-    { icon: <Linkedin size={24} />, url: '#', label: 'LinkedIn' },
-    { icon: <Twitter size={24} />, url: '#', label: 'Twitter' },
+    {
+      icon: <Github size={24} />,
+      url: 'https://github.com/DiegoT4l',
+      label: 'GitHub',
+    },
+    {
+      icon: <Linkedin size={24} />,
+      url: 'https://www.linkedin.com/in/diegot4l',
+      label: 'LinkedIn',
+    },
+    {
+      icon: <Twitter size={24} />,
+      url: 'https://www.x.com/diegot4l',
+      label: 'Twitter',
+    },
     {
       icon: <Mail size={24} />,
-      url: 'mailto:email@example.com',
+      url: 'mailto:contact@diegot4l.com',
       label: 'Email',
     },
   ];
 
   return (
-    <section id='contact' className='py-20 pt-0 bg-white dark:bg-gray-900'>
+    <section id='contact' className='py-44 bg-white dark:bg-gray-900'>
       <div className='container mx-auto px-6'>
         <motion.h2
           className='text-3xl font-bold text-center mb-12 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent'
@@ -97,6 +109,8 @@ function Contact() {
                 <motion.a
                   key={link.label}
                   href={link.url}
+                  target='_blank'
+                  rel='noreferrer'
                   className='p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors'
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
@@ -176,7 +190,7 @@ function Contact() {
                 {...register('message', {
                   required: 'El mensaje es requerido',
                 })}
-                className='w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-white'
+                className='w-full px-4 py-2 field-sizing-fixed rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-white'
               />
               {errors.message && (
                 <span className='text-red-500 text-sm'>
