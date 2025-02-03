@@ -36,6 +36,13 @@ function Contact() {
     setLoading(true);
     console.log(data);
     try {
+      await fetch('https://formspree.io/f/xleyzrnv', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
       // Simulate a delay
       await new Promise((resolve) => setTimeout(resolve, 2000));
       setSuccess(true);
@@ -46,14 +53,6 @@ function Contact() {
       setLoading(false);
     }
   };
-
-  if (loading) {
-    return <div>Enviando...</div>;
-  }
-
-  if (success) {
-    return <div>¡Mensaje enviado!</div>;
-  }
 
   const socialLinks = [
     {
@@ -77,6 +76,75 @@ function Contact() {
       label: 'Email',
     },
   ];
+
+  const buttonMessage = loading ? 'Enviando...' : 'Enviar Mensaje';
+
+  if (success) {
+    return (
+        <section id='contact' className='py-44 bg-white dark:bg-gray-900'>
+          <div className='container mx-auto px-6'>
+            <motion.h2
+                className='text-3xl font-bold text-center mb-12 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent'
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8 }}
+            >
+              Contacto
+            </motion.h2>
+
+            <div ref={ref} className='grid md:grid-cols-2 gap-12 max-w-4xl mx-auto'>
+              <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.8 }}
+              >
+                <h3 className='text-2xl font-semibold mb-4 text-gray-900 dark:text-white'>
+                  ¡Hablemos!
+                </h3>
+                <p className='text-gray-600 dark:text-gray-300 mb-6'>
+                  ¿Tienes un proyecto en mente? ¿Quieres colaborar? No dudes en
+                  contactarme.
+                </p>
+
+                <div className='flex space-x-4 mb-8'>
+                  {socialLinks.map((link, index) => (
+                      <motion.a
+                          key={link.label}
+                          href={link.url}
+                          target='_blank'
+                          rel='noreferrer'
+                          className='p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors'
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={inView ? { opacity: 1, y: 0 } : {}}
+                          transition={{ duration: 0.8, delay: index * 0.1 }}
+                      >
+                        {link.icon}
+                      </motion.a>
+                  ))}
+                </div>
+              </motion.div>
+
+              <motion.div
+                  onSubmit={handleSubmit(onSubmit)}
+                  className='space-y-6'
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.8 }}
+              >
+                <h3 className='text-2xl font-semibold mb-4 text-gray-900 dark:text-white'>
+                  ¡Formulario Envíado! 🎉
+                </h3>
+                <p className='text-gray-600 dark:text-gray-300 mb-6'>
+                  El formulario ha sido enviado correctamente. Me pondré en contacto contigo lo antes posible.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+    )
+  }
 
   return (
     <section id='contact' className='py-44 bg-white dark:bg-gray-900'>
@@ -201,11 +269,12 @@ function Contact() {
 
             <motion.button
               type='submit'
+              disabled={loading}
               className='w-full px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors'
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Enviar Mensaje
+                {buttonMessage}
             </motion.button>
           </motion.form>
         </div>
