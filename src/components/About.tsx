@@ -1,8 +1,9 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { loadAbout } from '../data';
+import profileImage from '../assets/images/profile.jpeg';
 import type { About } from '../types';
-import { useEffect, useState } from 'react';
 
 function About() {
   const [ref, inView] = useInView({
@@ -48,11 +49,11 @@ function About() {
           <motion.div className='relative' whileHover={{ scale: 1.05 }}>
             <div className='relative w-full h-[400px] rounded-lg overflow-hidden'>
               <img
-                src='https://images.unsplash.com/photo-1517849845537-4d257902454a'
+                src={profileImage}
                 alt='Profile'
-                className='w-full h-full object-cover'
+                className='w-full h-full object-cover dark:filter dark:invert'
               />
-              <div className='absolute inset-0 bg-gradient-to-t from-purple-600/50 to-transparent' />
+              <div className='absolute inset-0 bg-gradient-to-t from-purple-600/15 to-transparent' />
             </div>
           </motion.div>
 
