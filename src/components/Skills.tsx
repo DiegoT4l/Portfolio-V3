@@ -51,7 +51,7 @@ function Skills() {
 
         <div
           ref={ref}
-          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
+          className='grid pb-32 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
         >
           {skills.map((category, index) => {
             const IconComponent = category.icon.component;
