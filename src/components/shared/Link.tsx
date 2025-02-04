@@ -8,7 +8,7 @@ interface LinkProps {
 
 function Link({ href, children, onClick }: LinkProps) {
   return (
-    <a href={href} target='_blank' rel='noopener noreferrer' onClick={onClick}>
+    <a href={href} onClick={onClick}>
       {children}
     </a>
   );
